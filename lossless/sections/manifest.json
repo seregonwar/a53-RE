@@ -1,0 +1,74 @@
+[
+  {
+    "name": ".reset.text",
+    "flags": 6,
+    "address": 0,
+    "size": 10000,
+    "align": 8,
+    "file": "lossless/sections/reset.text.S"
+  },
+  {
+    "name": ".text.mm",
+    "flags": 3,
+    "address": 79691776,
+    "size": 128,
+    "align": 8,
+    "file": "lossless/sections/text.mm.S"
+  },
+  {
+    "name": ".text.io",
+    "flags": 3,
+    "address": 81838080,
+    "size": 128,
+    "align": 8,
+    "file": "lossless/sections/text.io.S"
+  },
+  {
+    "name": ".text.el3.loader",
+    "flags": 6,
+    "address": 1048576,
+    "size": 85088,
+    "align": 8,
+    "file": "lossless/sections/text.el3.loader.S"
+  },
+  {
+    "name": ".data.el3.loader",
+    "flags": 3,
+    "address": 1134592,
+    "size": 6200,
+    "align": 16,
+    "file": "lossless/sections/data.el3.loader.S"
+  },
+  {
+    "name": ".text.dev.loader",
+    "flags": 54,
+    "address": 1142784,
+    "size": 49872,
+    "align": 32,
+    "file": "lossless/sections/text.dev.loader.S"
+  },
+  {
+    "name": ".el2.loader",
+    "flags": 7,
+    "address": 1196032,
+    "size": 3288,
+    "align": 8,
+    "file": "lossless/sections/el2.loader.S"
+  },
+  {
+    "name": ".el1.loader",
+    "flags": 7,
+    "address": 1200128,
+    "size": 3368,
+    "align": 8,
+    "file": "lossless/sections/el1.loader.S"
+  },
+  {
+    "name": ".text.controller.dev",
+    "flags": 6,
+    "address": 100663296,
+    "size": 432576,
+    "align": 4,
+    "file": "lossless/sections/text.controller.dev.S"
+  }
+]

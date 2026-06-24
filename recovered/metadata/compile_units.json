@@ -1,0 +1,662 @@
+[
+  {
+    "original_path": "I:\\\\a53_sys\\\\releases_00.70\\\\mp4\\\\a53\\\\src\\\\loader\\\\el3\\el3_vector.S",
+    "path": "src/loader/el3/el3_vector.S",
+    "language": "AArch64 assembly"
+  },
+  {
+    "original_path": "I:\\\\a53_sys\\\\releases_00.70\\\\mp4\\\\a53\\\\src\\\\loader\\\\el3\\aarch64_el3_asm.S",
+    "path": "src/loader/el3/aarch64_el3_asm.S",
+    "language": "AArch64 assembly"
+  },
+  {
+    "original_path": "I:\\\\a53_sys\\\\releases_00.70\\\\mp4\\\\a53\\\\src\\\\loader\\\\el3\\setjmp_asm.S",
+    "path": "src/loader/el3/setjmp_asm.S",
+    "language": "AArch64 assembly"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\boot.c",
+    "path": "src/loader/el3/boot.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\boot_config.c",
+    "path": "src/loader/el3/boot_config.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\el0_support.c",
+    "path": "src/loader/el3/el0_support.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\svc.c",
+    "path": "src/loader/el3/svc.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\cp_param.c",
+    "path": "src/loader/el3/cp_param.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\printf_EL3.c",
+    "path": "src/loader/el3/printf_EL3.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\puts_EL3.c",
+    "path": "src/loader/el3/puts_EL3.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\putchar_low.c",
+    "path": "src/loader/el3/putchar_low.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\pericom.c",
+    "path": "src/loader/el3/pericom.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\deci5s_mp4.c",
+    "path": "src/loader/el3/deci5s_mp4.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\deci_shm.c",
+    "path": "src/loader/el3/deci_shm.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\deci_shm_mp4.c",
+    "path": "src/loader/el3/deci_shm_mp4.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\deci_sig_mp4.c",
+    "path": "src/loader/el3/deci_sig_mp4.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\deci_target_mp4.c",
+    "path": "src/loader/el3/deci_target_mp4.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\debug_status.c",
+    "path": "src/loader/el3/debug_status.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\msi.c",
+    "path": "src/loader/el3/msi.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\a53.c",
+    "path": "src/loader/el3/a53.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\aarch64.c",
+    "path": "src/loader/el3/aarch64.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\mmu.c",
+    "path": "src/loader/el3/mmu.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\gic.c",
+    "path": "src/loader/el3/gic.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\gic_v2m.c",
+    "path": "src/loader/el3/gic_v2m.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\syshub.c",
+    "path": "src/loader/el3/syshub.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\smnif.c",
+    "path": "src/loader/el3/smnif.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\arm_timer.c",
+    "path": "src/loader/el3/arm_timer.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\mp4_timer.c",
+    "path": "src/loader/el3/mp4_timer.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\c2pmsg.c",
+    "path": "src/loader/el3/c2pmsg.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\dvm.c",
+    "path": "src/loader/el3/dvm.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\misc.c",
+    "path": "src/loader/el3/misc.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\dev_context.c",
+    "path": "src/loader/el3/dev_context.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el3\\check.cpp",
+    "path": "src/loader/el3/check.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/mm_controller/dram\\a53_mm_controller__dram.cpp",
+    "path": "src/controller/mm_controller/dram/a53_mm_controller__dram.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/mm_controller/dram\\a53_mm_controller_pipeline_app__dram.cpp",
+    "path": "src/controller/mm_controller/dram/a53_mm_controller_pipeline_app__dram.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/mm_controller/dram\\a53_mm_controller_pipeline_metadata__dram.cpp",
+    "path": "src/controller/mm_controller/dram/a53_mm_controller_pipeline_metadata__dram.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/mm_controller/dram\\a53_mm_controller_rw_ring__dram.cpp",
+    "path": "src/controller/mm_controller/dram/a53_mm_controller_rw_ring__dram.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/mm_controller/dram\\mm_controller_dram.cpp",
+    "path": "src/controller/mm_controller/dram/mm_controller_dram.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/mm_controller\\a53_mm_controller.cpp",
+    "path": "src/controller/mm_controller/a53_mm_controller.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/mm_controller\\a53_mm_controller_gcr_ring.cpp",
+    "path": "src/controller/mm_controller/a53_mm_controller_gcr_ring.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/mm_controller\\a53_mm_controller_mm_trace.cpp",
+    "path": "src/controller/mm_controller/a53_mm_controller_mm_trace.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/mm_controller\\a53_mm_controller_pipeline_app.cpp",
+    "path": "src/controller/mm_controller/a53_mm_controller_pipeline_app.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/mm_controller\\a53_mm_controller_pipeline_dram.cpp",
+    "path": "src/controller/mm_controller/a53_mm_controller_pipeline_dram.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/mm_controller\\a53_mm_controller_pipeline_map.cpp",
+    "path": "src/controller/mm_controller/a53_mm_controller_pipeline_map.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/mm_controller\\a53_mm_controller_pipeline_metadata.cpp",
+    "path": "src/controller/mm_controller/a53_mm_controller_pipeline_metadata.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/mm_controller\\a53_mm_controller_pipeline_multimap.cpp",
+    "path": "src/controller/mm_controller/a53_mm_controller_pipeline_multimap.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/mm_controller\\a53_mm_controller_pipeline_unmap.cpp",
+    "path": "src/controller/mm_controller/a53_mm_controller_pipeline_unmap.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/mm_controller\\a53_mm_controller_rw_ring.cpp",
+    "path": "src/controller/mm_controller/a53_mm_controller_rw_ring.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/mm_controller\\mm_controller_sram.cpp",
+    "path": "src/controller/mm_controller/mm_controller_sram.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/io_controller/dram\\a53_io_controller_command_exec_dram.cpp",
+    "path": "src/controller/io_controller/dram/a53_io_controller_command_exec_dram.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/io_controller/dram\\a53_io_controller_dram.cpp",
+    "path": "src/controller/io_controller/dram/a53_io_controller_dram.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/io_controller/dram\\a53_nvm_ttn_driver_dram.cpp",
+    "path": "src/controller/io_controller/dram/a53_nvm_ttn_driver_dram.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/io_controller/dram\\a53_zcn_driver_dram.cpp",
+    "path": "src/controller/io_controller/dram/a53_zcn_driver_dram.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/io_controller/dram\\io_controller_dram.cpp",
+    "path": "src/controller/io_controller/dram/io_controller_dram.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/io_controller\\a53_io_controller.cpp",
+    "path": "src/controller/io_controller/a53_io_controller.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/io_controller\\a53_io_controller_command_exec.cpp",
+    "path": "src/controller/io_controller/a53_io_controller_command_exec.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/io_controller\\a53_io_controller_io_trace.cpp",
+    "path": "src/controller/io_controller/a53_io_controller_io_trace.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/io_controller\\a53_nvm_cq.cpp",
+    "path": "src/controller/io_controller/a53_nvm_cq.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/io_controller\\a53_nvm_sq.cpp",
+    "path": "src/controller/io_controller/a53_nvm_sq.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/io_controller\\a53_nvm_ttn_driver.cpp",
+    "path": "src/controller/io_controller/a53_nvm_ttn_driver.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/io_controller\\a53_nvm_ttn_notification_buffer.cpp",
+    "path": "src/controller/io_controller/a53_nvm_ttn_notification_buffer.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/io_controller\\a53_zcn_driver.cpp",
+    "path": "src/controller/io_controller/a53_zcn_driver.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/io_controller\\io_controller_boot.cpp",
+    "path": "src/controller/io_controller/io_controller_boot.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/io_controller\\io_controller_sram.cpp",
+    "path": "src/controller/io_controller/io_controller_sram.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/dram\\a53_controller_pipeline_common_dram.cpp",
+    "path": "src/controller/dram/a53_controller_pipeline_common_dram.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/dram\\a53_controller_rings_dram.cpp",
+    "path": "src/controller/dram/a53_controller_rings_dram.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/dram\\a53_controller_trace__dram.cpp",
+    "path": "src/controller/dram/a53_controller_trace__dram.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/dram\\a53_interrupt_context_ring__dram.cpp",
+    "path": "src/controller/dram/a53_interrupt_context_ring__dram.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/dram\\a53_psp_message_ring_dram.cpp",
+    "path": "src/controller/dram/a53_psp_message_ring_dram.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/dram\\controller_dram.cpp",
+    "path": "src/controller/dram/controller_dram.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:\\\\a53_sys\\\\releases_00.70\\\\mp4\\\\a53\\\\src\\\\controller\\test-asm.S",
+    "path": "src/controller/test-asm.S",
+    "language": "AArch64 assembly"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller\\a53_assert_wrapper.cpp",
+    "path": "src/controller/a53_assert_wrapper.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller\\a53_controller_pipeline_common.cpp",
+    "path": "src/controller/a53_controller_pipeline_common.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller\\a53_controller_pipeline_common_exec.cpp",
+    "path": "src/controller/a53_controller_pipeline_common_exec.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller\\a53_controller_rings.cpp",
+    "path": "src/controller/a53_controller_rings.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller\\a53_controller_trace.cpp",
+    "path": "src/controller/a53_controller_trace.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller\\a53_hashtable.cpp",
+    "path": "src/controller/a53_hashtable.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller\\a53_indirect_buffer_flat_cache.cpp",
+    "path": "src/controller/a53_indirect_buffer_flat_cache.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller\\a53_input_indirect_buffer.cpp",
+    "path": "src/controller/a53_input_indirect_buffer.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller\\a53_input_ring.cpp",
+    "path": "src/controller/a53_input_ring.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller\\a53_interrupt_context_ring.cpp",
+    "path": "src/controller/a53_interrupt_context_ring.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller\\a53_memory_wrapper.cpp",
+    "path": "src/controller/a53_memory_wrapper.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller\\a53_output_ring.cpp",
+    "path": "src/controller/a53_output_ring.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller\\a53_sram_cache.cpp",
+    "path": "src/controller/a53_sram_cache.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller\\controller.cpp",
+    "path": "src/controller/controller.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller\\test.cpp",
+    "path": "src/controller/test.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller_dev/mm_controller\\mm_controller_dev.cpp",
+    "path": "src/controller_dev/mm_controller/mm_controller_dev.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller_dev/io_controller\\io_controller_dev.cpp",
+    "path": "src/controller_dev/io_controller/io_controller_dev.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller_dev\\controller_dev.cpp",
+    "path": "src/controller_dev/controller_dev.cpp",
+    "language": "C++"
+  },
+  {
+    "original_path": "I:\\\\a53_sys\\\\releases_00.70\\\\mp4\\\\a53\\\\src\\\\loader\\\\el1\\el1_vector.S",
+    "path": "src/loader/el1/el1_vector.S",
+    "language": "AArch64 assembly"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el1\\dev_context.c",
+    "path": "src/loader/el1/dev_context.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:\\\\a53_sys\\\\releases_00.70\\\\mp4\\\\a53\\\\src\\\\loader\\\\el2\\el2_vector.S",
+    "path": "src/loader/el2/el2_vector.S",
+    "language": "AArch64 assembly"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/el2\\dev_context.c",
+    "path": "src/loader/el2/dev_context.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/dev\\dev.c",
+    "path": "src/loader/dev/dev.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/dev\\pmu.c",
+    "path": "src/loader/dev/pmu.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/dev\\prnt.c",
+    "path": "src/loader/dev/prnt.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/dev\\printf.c",
+    "path": "src/loader/dev/printf.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/dev\\ctype.c",
+    "path": "src/loader/dev/ctype.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/dev\\bzero.c",
+    "path": "src/loader/dev/bzero.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/dev\\strnlen.c",
+    "path": "src/loader/dev/strnlen.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/dev\\strncpy.c",
+    "path": "src/loader/dev/strncpy.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/dev\\puts.c",
+    "path": "src/loader/dev/puts.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/dev\\putchar.c",
+    "path": "src/loader/dev/putchar.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/dev\\titania_uart.c",
+    "path": "src/loader/dev/titania_uart.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/dev\\memcpy.c",
+    "path": "src/loader/dev/memcpy.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/dev\\context.c",
+    "path": "src/loader/dev/context.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/dev\\context_EL0.c",
+    "path": "src/loader/dev/context_EL0.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/dev\\aarch64.c",
+    "path": "src/loader/dev/aarch64.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/loader/dev\\pericom.c",
+    "path": "src/loader/dev/pericom.c",
+    "language": "C"
+  },
+  {
+    "original_path": "I:\\\\a53_sys\\\\releases_00.70\\\\mp4\\\\a53\\\\src\\\\loader\\\\dev\\aarch64_dev_asm.S",
+    "path": "src/loader/dev/aarch64_dev_asm.S",
+    "language": "AArch64 assembly"
+  },
+  {
+    "original_path": "I:\\\\a53_sys\\\\releases_00.70\\\\mp4\\\\a53\\\\src\\\\loader\\\\dev\\svc_asm.S",
+    "path": "src/loader/dev/svc_asm.S",
+    "language": "AArch64 assembly"
+  },
+  {
+    "original_path": "I:\\\\a53_sys\\\\releases_00.70\\\\mp4\\\\a53\\\\src\\\\loader\\\\reset\\vector.S",
+    "path": "src/loader/reset/vector.S",
+    "language": "AArch64 assembly"
+  },
+  {
+    "original_path": "I:\\a53_sys\\releases_00.70\\mp4\\a53\\src\\loader\\reset\\sram.c",
+    "path": "src/loader/reset/sram.c",
+    "language": "C"
+  },
+  {
+    "path": "external/common/include/a53/controller/a53_controller_bootconfiguration_driver_setup.h",
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/../../../common/include/a53/controller/a53_controller_bootconfiguration_driver_setup.h",
+    "language": ".h (header)"
+  },
+  {
+    "path": "external/common/include/archive/archive_layout_metadata.h",
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/../../../common/include\\archive/archive_layout_metadata.h",
+    "language": ".h (header)"
+  },
+  {
+    "path": "src/controller/a53_bootconfiguration.h",
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/a53_bootconfiguration.h",
+    "language": ".h (header)"
+  },
+  {
+    "path": "src/controller/a53_controller_pipeline_common.h",
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/a53_controller_pipeline_common.h",
+    "language": ".h (header)"
+  },
+  {
+    "path": "src/controller/a53_controller_rings.h",
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/a53_controller_rings.h",
+    "language": ".h (header)"
+  },
+  {
+    "path": "src/controller/a53_dvm.h",
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/../controller/a53_dvm.h",
+    "language": ".h (header)"
+  },
+  {
+    "path": "src/controller/a53_intrinsic_wrapper.h",
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/../controller/a53_intrinsic_wrapper.h",
+    "language": ".h (header)"
+  },
+  {
+    "path": "src/controller/a53_psp_message_ring.cpp",
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/dram/../a53_psp_message_ring.cpp",
+    "language": "referenced source"
+  },
+  {
+    "path": "src/controller/a53_ptdma.h",
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/a53_ptdma.h",
+    "language": ".h (header)"
+  },
+  {
+    "path": "src/controller/io_controller/a53_io_controller.h",
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/io_controller/a53_io_controller.h",
+    "language": ".h (header)"
+  },
+  {
+    "path": "src/controller/io_controller/a53_ioc_bootconfiguration.h",
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/io_controller/../../controller/io_controller/a53_ioc_bootconfiguration.h",
+    "language": ".h (header)"
+  },
+  {
+    "path": "src/controller/io_controller/a53_nvm.h",
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/io_controller/../../controller/io_controller/a53_nvm.h",
+    "language": ".h (header)"
+  },
+  {
+    "path": "src/controller/io_controller/a53_nvm_ttn.h",
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/io_controller/../../controller/io_controller/a53_nvm_ttn.h",
+    "language": ".h (header)"
+  },
+  {
+    "path": "src/controller/io_controller/a53_nvm_ttn_driver.h",
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/io_controller/a53_nvm_ttn_driver.h",
+    "language": ".h (header)"
+  },
+  {
+    "path": "src/controller/io_controller/a53_zcn.h",
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/io_controller/a53_zcn.h",
+    "language": ".h (header)"
+  },
+  {
+    "path": "src/controller/io_controller/a53_zcn_driver.h",
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/io_controller/../../controller/io_controller/a53_zcn_driver.h",
+    "language": ".h (header)"
+  },
+  {
+    "path": "src/controller/mm_controller/a53_mm_controller_pipeline_app.h",
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/mm_controller/a53_mm_controller_pipeline_app.h",
+    "language": ".h (header)"
+  },
+  {
+    "path": "src/controller/mm_controller/a53_mm_controller_pipeline_translation.h",
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/mm_controller/a53_mm_controller_pipeline_translation.h",
+    "language": ".h (header)"
+  },
+  {
+    "path": "src/controller/mm_controller/a53_mmc_bootconfiguration.h",
+    "original_path": "I:/a53_sys/releases_00.70/mp4/a53/src/controller/mm_controller/../../controller/mm_controller/a53_mmc_bootconfiguration.h",
+    "language": ".h (header)"
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "source": "src/loader/el3/el3_vector.S",
+    "ranges": 1,
+    "instructions": 594,
+    "status": "exported"
+  },
+  {
+    "source": "src/loader/el3/aarch64_el3_asm.S",
+    "ranges": 1,
+    "instructions": 89,
+    "status": "exported"
+  },
+  {
+    "source": "src/loader/el3/setjmp_asm.S",
+    "ranges": 1,
+    "instructions": 37,
+    "status": "exported"
+  },
+  {
+    "source": "src/controller/test-asm.S",
+    "ranges": 1,
+    "instructions": 18,
+    "status": "exported"
+  },
+  {
+    "source": "src/loader/el1/el1_vector.S",
+    "ranges": 1,
+    "instructions": 530,
+    "status": "exported"
+  },
+  {
+    "source": "src/loader/el2/el2_vector.S",
+    "ranges": 1,
+    "instructions": 510,
+    "status": "exported"
+  },
+  {
+    "source": "src/loader/dev/aarch64_dev_asm.S",
+    "ranges": 1,
+    "instructions": 9,
+    "status": "exported"
+  },
+  {
+    "source": "src/loader/dev/svc_asm.S",
+    "ranges": 1,
+    "instructions": 12,
+    "status": "exported"
+  },
+  {
+    "source": "src/loader/reset/vector.S",
+    "ranges": 1,
+    "instructions": 2226,
+    "status": "exported"
+  }
+]

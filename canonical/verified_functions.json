@@ -1,0 +1,26 @@
+[
+  {
+    "source": "src/loader/dev/context.c",
+    "symbol": "get_dev_context",
+    "address": "0x00118314",
+    "size": "0x8"
+  },
+  {
+    "source": "src/loader/dev/context_EL0.c",
+    "symbol": "spc_begin",
+    "address": "0x001183b0",
+    "size": "0x10"
+  },
+  {
+    "source": "src/loader/dev/context_EL0.c",
+    "symbol": "spc_putchar",
+    "address": "0x001183c0",
+    "size": "0x28"
+  },
+  {
+    "source": "src/loader/el3/dev_context.c",
+    "symbol": "dev_context_init_for_el3",
+    "address": "0x00114a38",
+    "size": "0x14"
+  }
+]

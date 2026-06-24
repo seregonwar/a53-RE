@@ -1,0 +1,47 @@
+{
+  "status": "semantic-source-promotion",
+  "compiler_required_for-byte-identity": "clang 6.0.0 AArch64",
+  "sources": [
+    {
+      "file": "src/loader/dev/bzero.c",
+      "symbols": ["bzero"],
+      "reference": "0x00117f70..0x00117f84",
+      "note": "Preserves the observed non-advancing byte-store behaviour."
+    },
+    {
+      "file": "src/loader/dev/strnlen.c",
+      "symbols": ["strnlen"],
+      "reference": "0x00117f84..0x00117fa8"
+    },
+    {
+      "file": "src/loader/dev/strncpy.c",
+      "symbols": ["strncpy"],
+      "reference": "0x00117fa8..0x00117fdf"
+    },
+    {
+      "file": "src/loader/dev/memcpy.c",
+      "symbols": ["memcpy"],
+      "reference": "0x001182f4..0x00118314"
+    },
+    {
+      "file": "src/loader/dev/ctype.c",
+      "symbols": ["toupper", "tolower"],
+      "reference": "0x00117f18..0x00117f70"
+    },
+    {
+      "file": "src/loader/dev/context.c",
+      "symbols": ["get_dev_context"],
+      "reference": "0x00118314..0x0011831c"
+    },
+    {
+      "file": "src/loader/dev/context_EL0.c",
+      "symbols": ["spc_begin", "spc_putchar", "spc_end"],
+      "reference": "0x001183b0..0x0011843c"
+    },
+    {
+      "file": "src/loader/el3/dev_context.c",
+      "symbols": ["dev_context_init_for_el3"],
+      "reference": "0x00114a38..0x00114a4c"
+    }
+  ]
+}
