@@ -3,30 +3,34 @@
   "compiler_required_for-byte-identity": "clang 6.0.0 AArch64",
   "sources": [
     {
+      "file": "src/loader/el3/boot.c",
+      "symbols": ["el3_print_common", "el3_jmpbuf_enter", "el3_jmpbuf_exit", "el3_boot", "el3_serror_handler"],
+      "reference": "0x00107b40..0x00109fac",
+      "note": "EL3 boot sequence, exception handler, and jmpbuf management. 5 functions."
+    },
+    {
+      "file": "src/loader/el3/boot_config.c",
+      "symbols": ["IoController_BootConfiguration_get", "MmController_BootConfiguration_get", "bits_18_12", "bits_27_12", "boot_config_dram_entry", "boot_config_io_io", "boot_config_io_phase1", "boot_config_io_phase2", "boot_config_mm_phase1", "boot_config_mm_phase2"],
+      "reference": "0x00109fac..0x0010a894",
+      "note": "Boot configuration for MM and IO controllers. DVM mailbox and DRAM entry setup."
+    },
+    {
+      "file": "src/loader/el3/el0_support.c",
+      "symbols": ["el0_support", "el0_va_to_el3_va", "mmu_el0_common_get_map_high", "mmu_el0_common_get_map_low", "mmu_el0_common_phase1", "mmu_el0_common_phase2"],
+      "reference": "0x0010a894..0x0010bbdc",
+      "note": "EL0 setup, MMU page table initialization and mapping for MM/IO cores. ERET into EL0."
+    },
+    {
+      "file": "src/loader/dev/aarch64.c",
+      "symbols": ["aarch64_DC_CVAC_range_be", "aarch64_DC_CVAC_range_bs", "aarch64_DC_IVAC_range_be", "aarch64_DC_CIVAC_range_be"],
+      "reference": "0x0011843c..0x001184e0",
+      "note": "Cache maintenance ops via inline assembly; return value changed to void (unused in all callers)."
+    },
+    {
       "file": "src/loader/dev/bzero.c",
       "symbols": ["bzero"],
       "reference": "0x00117f70..0x00117f84",
       "note": "Preserves the observed non-advancing byte-store behaviour."
-    },
-    {
-      "file": "src/loader/dev/strnlen.c",
-      "symbols": ["strnlen"],
-      "reference": "0x00117f84..0x00117fa8"
-    },
-    {
-      "file": "src/loader/dev/strncpy.c",
-      "symbols": ["strncpy"],
-      "reference": "0x00117fa8..0x00117fdf"
-    },
-    {
-      "file": "src/loader/dev/memcpy.c",
-      "symbols": ["memcpy"],
-      "reference": "0x001182f4..0x00118314"
-    },
-    {
-      "file": "src/loader/dev/ctype.c",
-      "symbols": ["toupper", "tolower"],
-      "reference": "0x00117f18..0x00117f70"
     },
     {
       "file": "src/loader/dev/context.c",
@@ -35,13 +39,275 @@
     },
     {
       "file": "src/loader/dev/context_EL0.c",
-      "symbols": ["spc_begin", "spc_putchar", "spc_end"],
-      "reference": "0x001183b0..0x0011843c"
+      "symbols": ["dev_context_init", "spc_begin", "spc_putchar", "spc_end"],
+      "reference": "0x0011831c..0x0011843c",
+      "note": "Dev context initialization for EL0 with PMU setup and STTYP buffer config."
+    },
+    {
+      "file": "src/loader/dev/ctype.c",
+      "symbols": ["toupper", "tolower"],
+      "reference": "0x00117f18..0x00117f70"
+    },
+    {
+      "file": "src/loader/dev/dev.c",
+      "symbols": ["mp4_get_cpu", "mp4_basename"],
+      "reference": "0x00117000..0x00117058"
+    },
+    {
+      "file": "src/loader/dev/memcpy.c",
+      "symbols": ["memcpy"],
+      "reference": "0x001182f4..0x00118314"
+    },
+    {
+      "file": "src/loader/dev/pericom.c",
+      "symbols": ["pericom_putchar"],
+      "reference": "0x001184e0..0x0011853c"
+    },
+    {
+      "file": "src/loader/dev/pmu.c",
+      "symbols": ["dev_pmu_init", "dev_pmu_setup_default", "pmu_print_count", "dev_pmu_report"],
+      "reference": "0x00117058..0x0011720c",
+      "note": "Performance Monitor Unit. MRS/MSR to PMU regs. pmu_print_count with event name table."
+    },
+    {
+      "file": "src/loader/dev/prnt.c",
+      "symbols": ["prnt"],
+      "reference": "0x0011720c..0x00117d9c",
+      "note": "Clean-room printf formatter; callback-based output protocol (0x200 begin / 0x201 end)."
+    },
+    {
+      "file": "src/loader/dev/printf.c",
+      "symbols": ["putchar_sttyp_hook", "printf_sttyp", "printf", "putchar_titania_uart_hook_el0", "printf_titania_uart_el0"],
+      "reference": "0x00117d9c..0x00117f18",
+      "note": "printf variants with hook callbacks for STTYP and Titania UART output."
+    },
+    {
+      "file": "src/loader/dev/putchar.c",
+      "symbols": ["putchar", "sttyp_putchar_context_get", "set_sttyp_putchar_context", "putchar_sttyp_end", "putchar_titania_uart_el0", "putchar_sttyp_begin", "putchar_el0_direct", "putchar_sttyp"],
+      "reference": "0x00117fe4..0x001182d8",
+      "note": "putchar variants: generic, EL0 direct (Pericom/TTYP), STTYP protocol, Titania UART."
+    },
+    {
+      "file": "src/loader/dev/puts.c",
+      "symbols": ["puts"],
+      "reference": "0x00117fe0..0x00117fe4",
+      "note": "Standard puts via SVC #0x111."
+    },
+    {
+      "file": "src/loader/dev/strncpy.c",
+      "symbols": ["strncpy"],
+      "reference": "0x00117fa8..0x00117fdf"
+    },
+    {
+      "file": "src/loader/dev/strnlen.c",
+      "symbols": ["strnlen"],
+      "reference": "0x00117f84..0x00117fa8"
+    },
+    {
+      "file": "src/loader/dev/titania_uart.c",
+      "symbols": ["putchar_titania_uart_el3"],
+      "reference": "0x001182d8..0x001182f4"
+    },
+    {
+      "file": "src/loader/el3/a53.c",
+      "symbols": ["aarch64_DC_CVAC_range"],
+      "reference": "0x00111090..0x001110a8"
+    },
+    {
+      "file": "src/loader/el3/aarch64.c",
+      "symbols": ["aarch64_print_CurrentEL", "aarch64_print_SPSR_EL1", "aarch64_print_SPSR_EL2", "aarch64_print_SPSR_EL3", "aarch64_print_ESR_EL1", "aarch64_print_ESR_EL2", "aarch64_print_ESR_EL3", "aarch64_print_ISS_instruction_abort", "aarch64_print_HCR_EL2", "aarch64_print_SCR_EL3", "aarch64_print_SCTLR_EL1", "aarch64_print_SCTLR_EL2", "aarch64_print_SCTLR_EL3", "aarch64_read_ELR", "aarch64_read_ESR", "aarch64_read_FAR", "aarch64_address_translation_read", "aarch64_address_translation_write", "aarch64_ccahe_op_init", "el3_reg_bit_name32_print", "aarch64_cache_op_set_way", "aarch64_CISW_all"],
+      "reference": "0x001110a8..0x001119c0",
+      "note": "24 functions. System register access via inline MRS/MSR. Bit-name decoding for SPSR/ESR/HCR/SCR/SCTLR. Cache operations and geometry globals."
+    },
+    {
+      "file": "src/loader/el3/arm_timer.c",
+      "symbols": ["arm_timer_init"],
+      "reference": "0x001147c4..0x00114868"
+    },
+    {
+      "file": "src/loader/el3/c2pmsg.c",
+      "symbols": ["c2pmsg_addr64", "c2pmsg_read", "c2pmsg_write", "c2pmsg_init"],
+      "reference": "0x001148b4..0x001149a0",
+      "note": "C2P message queue. addr64: 0..3 at 0x3010500+4*no, 4..19 at 0x30ec000+0x1000*no."
+    },
+    {
+      "file": "src/loader/el3/check.cpp",
+      "symbols": ["check_consistency"],
+      "reference": "0x00114a4c..0x00114a4c",
+      "note": "Check consistency function (placeholder)."
+    },
+    {
+      "file": "src/loader/el3/cp_param.c",
+      "symbols": ["cp_param_check", "cp_param_init"],
+      "reference": "0x0010bc44..0x0010bcd0",
+      "note": "g_param2 global variable defined here."
+    },
+    {
+      "file": "src/loader/el3/debug_status.c",
+      "symbols": ["mp4_debug_status_get", "mp4_debug_status_get_reg", "mp4_debug_status_get_frame", "mp4_debug_status_show", "mp4_debug_status_putchar", "mp4_debug_status_init", "mp4_debug_status_exit", "mp4_debug_status_c_set"],
+      "reference": "0x00110120..0x00110534",
+      "note": "Core debug status management. Uses putchar_low, printf_low, printf_cp. mp4_debug_status_c_set at the end."
+    },
+    {
+      "file": "src/loader/el3/deci5s_mp4.c",
+      "symbols": ["deci5s_assert", "deci5s_basename", "deci5s_get_cpu", "deci5s_roundup64", "deci5s_ch_fix_get_t2c_cmd_ptr", "deci5s_sdbgp_com_spec_vector_find", "deci5s_ch_fix_send_request", "deci5s_context_check_overflow", "deci5s_context_handle_dcmp_packet", "deci5s_context_handle_packet", "deci5s_context_init", "deci5s_dcmp_protocol_info_print", "deci5s_header_init_p_cmd", "deci5s_header_init_psdp", "deci5s_mp4_panic_and_loop", "deci5s_mp4_start", "deci5s_sdbgp_context_alloc_res_command", "deci5s_sdbgp_context_alloc_res_command_common", "deci5s_sdbgp_context_alloc_res_info", "deci5s_sdbgp_context_check_overflow", "deci5s_sdbgp_context_handle_address_translation", "deci5s_sdbgp_context_handle_get_backtrace", "deci5s_sdbgp_context_handle_get_conf", "deci5s_sdbgp_context_handle_get_mmu", "deci5s_sdbgp_context_handle_get_pmu", "deci5s_sdbgp_context_handle_get_pmu_count_info", "deci5s_sdbgp_context_handle_get_reg", "deci5s_sdbgp_context_handle_get_syshub_tlb", "deci5s_sdbgp_context_handle_test", "deci5s_send_sttyp", "deci5s_timestamp"],
+      "reference": "0x0010bf78..0x0010e028",
+      "note": "DECI5S debug protocol. 31 functions. SDBGP command handling, DCMP link management, STTYP output, panic/loop."
+    },
+    {
+      "file": "src/loader/el3/deci_shm.c",
+      "symbols": ["deci_shm_buf_check", "deci_shm_ch_node_fix_check_with_magic", "deci_shm_ch_node_ring_check", "deci_shm_common_check", "deci_shm_common_get_ch_fix_cp_to_mp4", "deci_shm_common_get_ch_fix_mp4_to_cp", "deci_shm_common_get_ch_ring_cp_to_mp4", "deci_shm_common_get_ch_ring_mp4_to_cp", "deci_shm_common_get_node", "deci_shm_common_get_node_cp", "deci_shm_common_get_node_main", "deci_shm_common_get_node_mp3", "deci_shm_common_get_node_mp4", "deci_shm_common_get_offset", "deci_shm_common_get_ptr", "deci_shm_common_get_version", "deci_shm_common_v2_find_target", "deci_shm_common_v2_get_node_cp", "deci_shm_common_v2_get_node_main", "deci_shm_common_v2_get_node_sycorax", "deci_shm_make_mbox0", "deci_shm_make_mbox01", "deci_shm_make_mbox_16b", "deci_shm_mbox_get_op0", "deci_shm_mbox_get_op1", "deci_shm_node_check_with_magic"],
+      "reference": "0x0010e028..0x0010ed78",
+      "note": "DECI shared memory protocol. 26 utility functions. V1 and V2 common structures, mailbox, buffer, channel node management."
+    },
+    {
+      "file": "src/loader/el3/deci_shm_mp4.c",
+      "symbols": ["deci_shm_mp4_common", "deci_shm_mp4_start"],
+      "reference": "0x0010ed78..0x0010eef4",
+      "note": "MP4-specific DECI SHM initialization. Sets up firmware base at 0xd0000000, SHM common at 0xe0000000."
+    },
+    {
+      "file": "src/loader/el3/deci_sig_mp4.c",
+      "symbols": ["deci_mp4_sig1_write_int_to_sycorax", "deci_mp4_sig2_read_int_from_emc", "deci_mp4_sig3_clear_int_from_emc", "deci_mp4_sig3_read_int_from_emc", "deci_sig_mp4_start"],
+      "reference": "0x0010eef4..0x0010f018",
+      "note": "DECI signal/interrupt management. SIG1 write to Sycorax, SIG2/SIG3 read from EMC. DSB barriers."
+    },
+    {
+      "file": "src/loader/el3/deci_target_mp4.c",
+      "symbols": ["deci_target_ch_fix_handle_intr", "deci_target_ch_fix_handle_op_intr", "deci_target_ch_fix_send_reply", "deci_target_ch_fix_send_request", "deci_target_ch_fix_write_mbox", "deci_target_get_ch_fix", "deci_target_get_md", "deci_target_mp4_clear_int_from_cp", "deci_target_mp4_get_ch_fix", "deci_target_mp4_get_shm_ch_fix_cp_to_target", "deci_target_mp4_get_shm_ch_fix_target_to_cp", "deci_target_mp4_get_shm_ch_ring_cp_to_target", "deci_target_mp4_get_shm_ch_ring_target_to_cp", "deci_target_mp4_get_shm_node_target", "deci_target_mp4_int_to_cp", "deci_target_mp4_intr", "deci_target_mp4_intr_with_cpu", "deci_target_mp4_poll", "deci_target_mp4_start", "deci_target_mp4_up", "deci_target_mp4_wait_clear_target_to_cp", "deci_target_start", "deci_target_up"],
+      "reference": "0x0010f018..0x00110120",
+      "note": "DECI target channel management. 23 functions. Channel fix initialization, interrupt handling, mailbox protocol, vtable metadata."
     },
     {
       "file": "src/loader/el3/dev_context.c",
       "symbols": ["dev_context_init_for_el3"],
       "reference": "0x00114a38..0x00114a4c"
+    },
+    {
+      "file": "src/loader/el3/dvm.c",
+      "symbols": ["dvm_read_mailbox", "dvm_init"],
+      "reference": "0x001149a0..0x001149d8"
+    },
+    {
+      "file": "src/loader/el3/gic.c",
+      "symbols": ["gic_print_reg", "gic_print_gicd_reg", "gic_print_gicc_reg", "gic_read_GICC_IAR", "gic_write_GICC_EOIR", "gic_read_GICC_RPR", "gic_read_GICC_HPPIR", "gic_status_check", "gic_check", "gic_enable_irq", "gic_init_by_1st_core", "gic_init_by_2nd_core", "gic_sgi1", "gic_core1"],
+      "reference": "0x00113774..0x001140a8",
+      "note": "GICv2 interrupt controller. 14 functions. MMIO at CBAR+0x1000 (GICD) and CBAR+0x2000 (GICC). IRQ enable, status checking, register printing."
+    },
+    {
+      "file": "src/loader/el3/gic_v2m.c",
+      "symbols": ["gic_v2m_init"],
+      "reference": "0x001140a8..0x001140b0"
+    },
+    {
+      "file": "src/loader/el3/misc.c",
+      "symbols": ["el3_assert"],
+      "reference": "0x001149d8..0x00114a38"
+    },
+    {
+      "file": "src/loader/el3/mmu.c",
+      "symbols": ["mmu_el3_level2_0_op_range_be", "mmu_el3_level2_0_unmap_range_be", "mmu_init_phase1", "mmu_init_phase2a", "mmu_init_phase2b", "mmu_init_phase3", "mmu_init_phase4", "mmu_page_table_access_check_el0_read", "mmu_page_table_access_check_el0_write", "mmu_page_table_access_check_range_be", "mmu_page_table_access_check_read", "mmu_page_table_access_check_write", "mmu_page_table_check_be", "mmu_page_table_get_entry_size", "mmu_page_table_get_map", "mmu_page_table_get_ppte", "mmu_page_table_get_vbase", "mmu_page_table_init", "mmu_page_table_map_range_be", "mmu_page_table_map_range_bs", "mmu_page_table_mgr_alloc", "mmu_page_table_op_range_be", "mmu_page_table_set_table", "mmu_page_table_show_map", "mmu_page_table_sync_all", "mmu_va_to_pa"],
+      "reference": "0x001118c0..0x00113774",
+      "note": "MMU page table management. 26 functions. 4-level AArch64 translation tables, TLB ops, access checks, DC CVAC. EL3 level-2 tables at 0x0 and 0x40000000."
+    },
+    {
+      "file": "src/loader/el3/mp4_timer.c",
+      "symbols": ["mp4_timer_get_cnt", "mp4_timer_init"],
+      "reference": "0x00114868..0x001148ac"
+    },
+    {
+      "file": "src/loader/el3/msi.c",
+      "symbols": ["msi_write_scratch0", "msi_write_scratch1", "msi_write_scratch2", "msi_write_scratch3", "msi_write_p2c_command", "msi_read_c2p_command", "msi_read_c2p_arg1", "msi_write_c2p_ack", "msi_send_command_nosync", "msi_send_command_sync", "msi_get_prev", "msi_read_p2c_ack", "msi_send_write_sig", "msi_has_internal_qaf", "msi_get_msi_address32", "msi_get_msi_offset", "msi_get_vector_for_mm", "msi_get_vector_for_io", "msi_get_vector_1st_core", "msi_get_vector_2nd_core", "msi_get_main_param", "mp4_iommu_map_info_print", "msi_get_info_by_1st_core", "msi_get_info_by_2nd_core", "msi_wait_command", "msi_test"],
+      "reference": "0x00110534..0x00111090",
+      "note": "MSI interrupt handling. 26 functions including helpers. Uses unrolled polling for non-blocking MSI protocol."
+    },
+    {
+      "file": "src/loader/el3/pericom.c",
+      "symbols": ["putchar_pericom"],
+      "reference": "0x0010bf3c..0x0010bf78"
+    },
+    {
+      "file": "src/loader/el3/printf_EL3.c",
+      "symbols": ["putchar_low_hook", "printf_low", "putchar_cp_hook", "printf_cp"],
+      "reference": "0x0010bcd0..0x0010bdd8",
+      "note": "printf_low and printf_cp with their respective putchar hooks."
+    },
+    {
+      "file": "src/loader/el3/putchar_low.c",
+      "symbols": ["putchar_low", "putchar_cp"],
+      "reference": "0x0010bed0..0x0010bf3c"
+    },
+    {
+      "file": "src/loader/el3/puts_EL3.c",
+      "symbols": ["write_EL3", "puts_EL3"],
+      "reference": "0x0010bdd8..0x0010bed0",
+      "note": "write_EL3 uses putchar_pericom / putchar_cp; puts_EL3 uses deci5s_send_sttyp."
+    },
+    {
+      "file": "src/loader/el3/smnif.c",
+      "symbols": ["smnif_init"],
+      "reference": "0x001146e4..0x001147c4",
+      "note": "SMNIF TLB init. DSB/ISB barriers. MMIO at 0x3220000/0x100a000/0x1000018/0x100001c."
+    },
+    {
+      "file": "src/loader/el3/svc.c",
+      "symbols": ["svc_EL3"],
+      "reference": "0x0010bbdc..0x0010bc44",
+      "note": "SVC handler. Checks imm16 == 0x152 for write_EL3, else prints error via aarch64_print_ESR_EL1."
+    },
+    {
+      "file": "src/loader/el3/syshub.c",
+      "symbols": ["writel", "readl", "syshub_init", "syshub_tlb_init_iommu", "mp4_iommu_map_info_printf", "syshub_init_after_main_param", "syshub_init_sdma", "syshub_init_for_io", "syshub_tlb_get"],
+      "reference": "0x001140b0..0x001146e4",
+      "note": "System Hub IOMMU TLB management. MMIO at 0x32300xx region."
+    },
+    {
+      "file": "src/loader/reset/vector.S",
+      "symbols": ["A53_ENTRY", "MP4_ENTRY", "_CACHE_ALIGN", "_EL3_STACK_SIZE_G6_CORE0", "_EL3_STACK_SIZE_G6_CORE1", "_EL3_STACK_SIZE_SRAM_CORE0", "_EL3_STACK_SIZE_SRAM_CORE1", "_PAGE_SIZE_SMALL", "__reset_text_begin", "_start"],
+      "reference": "0x00000000..0x000022c8",
+      "note": "Reset vector table at 0x0. EL3 exception handlers (Synch, IRQ, FIQ, SError) for SRAM boot. Stack setup, MPIDR core detection, VBAR_EL3 set to 0x1000. ~8.7 KB."
+    },
+    {
+      "file": "src/loader/el3/el3_vector.S",
+      "symbols": ["__loader_el3_text_begin", "__loader_el3_vector", "__page_table_el3_level3_end", "_loader_el3_vector"],
+      "reference": "0x00107000..0x00107948",
+      "note": "EL3 vector table at 0x107000. 16 exception entries (4 types x 4 states). SError handler saves full context (x0-x30, ELR, SPSR, ESR, FAR) and calls el3_serror_handler."
+    },
+    {
+      "file": "src/loader/el3/aarch64_el3_asm.S",
+      "symbols": ["aarch64_WFI", "aarch64_psci", "aarch64_read_CBAR_EL1", "aarch64_read_CLIDR_EL1", "aarch64_read_CONTEXTIDR_EL1", "aarch64_read_CPUECTLR_EL1", "aarch64_read_CSSELR_EL1", "aarch64_read_DAIF", "aarch64_read_ELR_EL1", "aarch64_read_ELR_EL2", "aarch64_read_ELR_EL3", "aarch64_read_ESR_EL1", "aarch64_read_ESR_EL2", "aarch64_read_ESR_EL3", "aarch64_read_ICC_IAR0_EL1", "aarch64_read_ICC_IAR1_EL1", "aarch64_read_ISR_EL1", "aarch64_read_MIDR_EL1", "aarch64_read_MPIDR_EL1", "aarch64_read_NZCV", "aarch64_read_PMCEID0_EL0", "aarch64_read_PMCEID1_EL0", "aarch64_read_SPSR_EL1", "aarch64_read_SPSR_EL2", "aarch64_read_SPSel", "aarch64_read_SP_EL0", "aarch64_read_SP_EL1", "aarch64_read_SP_EL2", "aarch64_read_TCR_EL1", "aarch64_read_TCR_EL2", "aarch64_read_TCR_EL3", "aarch64_read_TPIDR_EL1", "aarch64_read_TPIDR_EL2", "aarch64_read_TPIDR_EL3", "aarch64_read_TTBR0_EL1", "aarch64_read_TTBR0_EL2", "aarch64_read_TTBR0_EL3", "aarch64_read_TTBR1_EL1", "aarch64_read_VBAR_EL1", "aarch64_read_VBAR_EL2", "aarch64_write_DAIF", "aarch64_write_ICC_SGI1R_EL1", "jump_with_sp"],
+      "reference": "0x00107948..0x00107aac",
+      "note": "43 assembly helper functions wrapping MRS/MSR system register access. Covers ICC, DAIF, ELR, SPSR, TCR, TTBR, VBAR, TPIDR, MPIDR, MIDR, CLIDR, CSSELR, PMCEID, SP, NZCV, ISR, CPUECTLR, CBAR. Also includes aarch64_WFI, aarch64_psci (SMC #0), and jump_with_sp."
+    },
+    {
+      "file": "src/loader/el3/setjmp_asm.S",
+      "symbols": ["el3_longjmp", "el3_setjmp", "el3_spinlock_lock", "el3_spinlock_unlock"],
+      "reference": "0x00107aac..0x00107b40",
+      "note": "setjmp/longjmp saving sp, SPSR_EL2, ELR_EL2, and x19-x30 callee-saved registers. Spinlock with LDAXR/STXR exclusive access."
+    },
+    {
+      "file": "src/loader/el2/el2_vector.S",
+      "symbols": ["__loader_dev_bss_begin", "__loader_dev_bss_end", "__loader_dev_data_begin", "__loader_dev_data_end", "__loader_el2_begin", "_loader_el2_vector"],
+      "reference": "0x00124000..0x001247f8",
+      "note": "EL2 vector table at 0x124000. 16 exception entries dispatching through SMC #2 to EL3. EL2 handler saves CurrentEL, SPSR_EL2, ESR_EL2, ELR_EL2, then SMC #2 to pass to EL3."
+    },
+    {
+      "file": "src/loader/el1/el1_vector.S",
+      "symbols": ["__loader_el1_begin", "_loader_el1_vector"],
+      "reference": "0x00125000..0x00125848",
+      "note": "EL1 vector table at 0x125000. 16 exception entries dispatching through SMC #0 or SMC #1 to higher ELs. EL1 handler saves context (CurrentEL, SPSR_EL1, ESR_EL1, ELR_EL1) and passes via SMC #1 to EL3."
+    },
+    {
+      "file": "src/loader/dev/aarch64_dev_asm.S",
+      "symbols": ["aarch64_BRK", "aarch64_BRK_200", "aarch64_BRK_with_arg"],
+      "reference": "0x0011853c..0x00118560",
+      "note": "BRK instruction wrappers: aarch64_BRK (BRK #0x100), aarch64_BRK_200 (BRK #0x200), aarch64_BRK_with_arg (BRK #0x101 with inline arg)."
+    },
+    {
+      "file": "src/loader/dev/svc_asm.S",
+      "symbols": ["svc_putchar", "svc_puts", "svc_sttyp_begin", "svc_sttyp_end", "svc_sttyp_putchar", "svc_sttyp_write"],
+      "reference": "0x00118560..0x00118590",
+      "note": "SVC instruction wrappers for EL0→EL3 syscalls: putchar (SVC #0x101), puts (SVC #0x111), STTYP protocol begin/putchar/end/write (SVC #0x120..#0x152)."
     }
   ]
 }

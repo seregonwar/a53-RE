@@ -4,3 +4,4 @@ build/
 *.log
 hs_err_pid*.log
 /tools/__pycache__
+/.commandcode
