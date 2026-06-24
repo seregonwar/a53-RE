@@ -18,7 +18,14 @@ def main() -> None:
     parser.add_argument("--clang", default="clang")
     args = parser.parse_args()
 
-    entries = json.loads((args.canonical / "verified_functions.json").read_text())
+    raw = json.loads((args.canonical / "verified_functions.json").read_text())
+
+    # Support both old flat-array and new {_metadata, functions} formats.
+    if isinstance(raw, list):
+        entries = raw
+    else:
+        entries = raw.get("functions", [])
+
     flags = [
         "--target=aarch64-none-elf",
         "-ffreestanding",
@@ -31,7 +38,12 @@ def main() -> None:
     with tempfile.TemporaryDirectory(prefix="a53-canonical-") as directory:
         work = Path(directory)
         for entry in entries:
-            source = entry["source"]
+            # Only verify byte-exact entries (those with address + size).
+            if "address" not in entry or "size" not in entry:
+                continue
+
+            # Support both "source" (old) and "file" (new) keys.
+            source = entry.get("file") or entry.get("source", "")
             if source not in objects:
                 output = work / (Path(source).stem + ".o")
                 subprocess.run([args.clang, *flags, "-c", str(args.canonical / source), "-o", str(output)], check=True)

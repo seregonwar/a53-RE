@@ -1,8 +1,4 @@
-#include "a53_abi.h"
 #include "a53_context.h"
-
-extern deci_shm_mp4_t g_deci_shm_mp4_data;
-extern deci_shm_mp4_t *g_deci_shm_mp4;
 
 deci_shm_common_t *A53_SECTION(".text.el3.loader") deci_shm_mp4_common(void)
 {

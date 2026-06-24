@@ -2,7 +2,7 @@
 
 #include "a53_abi.h"
 
-void *A53_SECTION(".text.dev.loader") memcpy(void *dest, void *src, size_t n)
+void *A53_SECTION(".text.dev.loader") memcpy(void *dest, const void *src, size_t n)
 {
     unsigned char *out = dest;
     const unsigned char *in = src;

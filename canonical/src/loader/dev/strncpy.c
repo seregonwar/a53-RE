@@ -2,7 +2,7 @@
 
 #include "a53_abi.h"
 
-char *A53_SECTION(".text.dev.loader") strncpy(char *dest, char *src, size_t n)
+char *A53_SECTION(".text.dev.loader") strncpy(char *dest, const char *src, size_t n)
 {
     size_t index;
 

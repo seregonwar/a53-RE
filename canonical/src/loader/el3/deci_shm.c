@@ -1,16 +1,4 @@
-#include "a53_abi.h"
 #include "a53_context.h"
-
-#define DECI_SHM_NODE_MAGIC1_CP   0xc8f7e343U
-#define DECI_SHM_NODE_MAGIC1_MP4  0x8e7e62d6U
-#define DECI_SHM_NODE_MAGIC1_MP3  0x8fec3303U
-#define DECI_SHM_NODE_MAGIC_MAIN   0x812c4d3dU
-#define DECI_SHM_MAGIC_SYCORAX    0xfbdf45e4U
-#define DECI_SHM_MAGIC_CP         0xf470b785U
-#define DECI_SHM_MAGIC_MP4_OTHER  0x43fe7688U
-#define DECI_SHM_MAGIC_SYNC       0x87661e49U
-#define DECI_SHM_CH_NODE_FIX_MAGIC_CP_TO_MP4 0xcb9b4abaU
-#define DECI_SHM_CH_NODE_RING_MAGIC_CP_TO_MP4 0x8e154c2aU
 
 #define SELF_SIZE_NODE      0x20
 #define SELF_SIZE_CH_FIX    0x60

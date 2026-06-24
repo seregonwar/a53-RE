@@ -5,7 +5,7 @@
 
 extern int putchar_pericom(int c);
 extern int deci5s_send_sttyp(char *msg, a53_u64 len);
-extern size_t strnlen(const char *string, size_t maxlen);
+extern a53_u64 strnlen(const char *string, a53_u64 maxlen);
 
 int A53_SECTION(".text.el3.loader") write_EL3(char *msg, a53_u64 len)
 {

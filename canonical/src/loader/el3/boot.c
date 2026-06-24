@@ -1,11 +1,8 @@
-#include "a53_abi.h"
 #include "a53_context.h"
 
 extern el3_jmp_buf *el3_jmpbufp;
 extern el3_param_t g_param;
 extern layout_t g_layout;
-extern dev_context_t g_dev_context_el3_core0;
-extern dev_context_t g_dev_context_el3_core1;
 extern a53_u32 g_count_0;
 extern a53_u32 g_count_1;
 
@@ -27,8 +24,8 @@ extern void aarch64_BRK(int code);
 extern void mmu_init_phase1(void);
 extern void mmu_init_phase2a(void);
 extern void mmu_init_phase2b(void);
-extern void deci5s_mp4_start(a53_u32 core);
-extern void deci5s_mp4_panic_and_loop(a53_u32 cpu, a53_u64 pc);
+extern int deci5s_mp4_start(a53_u32 core);
+extern int deci5s_mp4_panic_and_loop(a53_u32 cpu, a53_u64 pc);
 
 void A53_SECTION(".text.el3.loader") el3_print_common(void)
 {
@@ -335,12 +332,11 @@ void A53_SECTION(".text.el3.loader") el3_print_common(void)
         __asm__("mrs %0, ttbr1_el1" : "=r"(ttbr));
         cpu = mp4_get_cpu();
         printf_low("%d:TTBR1_EL1       0x%016lx\n", (a53_u64)cpu, ttbr);
-    }
-
-    /* CBAR_EL1 */
+    }    /* CBAR_EL1 (S3_1_C15_C3_0) */
     {
         a53_u64 cbar;
-        __asm__("mrs %0, cbar_el1" : "=r"(cbar));
+
+        __asm__("mrs %0, S3_1_C15_C3_0" : "=r"(cbar));
         cpu = mp4_get_cpu();
         printf_low("%d:CBAR_EL1        0x%016lx\n", (a53_u64)cpu, cbar);
     }

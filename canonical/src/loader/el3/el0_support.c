@@ -3,13 +3,10 @@
 
 extern el3_param_t g_param;
 extern layout_t g_layout;
-extern dev_context_t g_dev_context_mm;
-extern dev_context_t g_dev_context_io;
 extern mmu_el0_mm_t g_mmu_el0_mm;
 extern mmu_el0_io_t g_mmu_el0_io;
 extern a53_u8 core1_boot_config[];
 
-extern void check_consistency(void);
 extern void aarch64_DC_CIVAC_range_be(void *base, void *end);
 extern void aarch64_write_DAIF(a53_u64 v);
 

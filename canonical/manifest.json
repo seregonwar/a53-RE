@@ -268,6 +268,12 @@
       "note": "Reset vector table at 0x0. EL3 exception handlers (Synch, IRQ, FIQ, SError) for SRAM boot. Stack setup, MPIDR core detection, VBAR_EL3 set to 0x1000. ~8.7 KB."
     },
     {
+      "file": "src/loader/reset/sram.c",
+      "symbols": ["debug_status_set_x3", "debug_status_set_x4", "debug_status_set_x5", "debug_status_step", "el3_sram_boot", "el3_sram_boot2", "el3_sram_serror", "printf_el3_sram", "putchar_el3_sram", "putchar_el3_sram_core", "putchar_el3_sram_hook", "puts_el3_sram", "syshub_init_all", "syshub_init_core", "test_uart"],
+      "reference": "0x0606778c..0x06069a00",
+      "note": "SRAM boot stage: UART I/O, printf via canonical prnt, syshub IOMMU init, boot sequence, SError handler. 15 functions. prnt_el3_sram, strnlen_el3_sram, and ctype table skipped (duplicates of canonical code)."
+    },
+    {
       "file": "src/loader/el3/el3_vector.S",
       "symbols": ["__loader_el3_text_begin", "__loader_el3_vector", "__page_table_el3_level3_end", "_loader_el3_vector"],
       "reference": "0x00107000..0x00107948",
@@ -308,6 +314,18 @@
       "symbols": ["svc_putchar", "svc_puts", "svc_sttyp_begin", "svc_sttyp_end", "svc_sttyp_putchar", "svc_sttyp_write"],
       "reference": "0x00118560..0x00118590",
       "note": "SVC instruction wrappers for EL0→EL3 syscalls: putchar (SVC #0x101), puts (SVC #0x111), STTYP protocol begin/putchar/end/write (SVC #0x120..#0x152)."
+    },
+    {
+      "file": "src/loader/el2/dev_context.c",
+      "symbols": [],
+      "reference": "0x00124cd8..0x00124cd8",
+      "note": "EL2 dev_context stub — no function body recovered from binary."
+    },
+    {
+      "file": "src/loader/el1/dev_context.c",
+      "symbols": [],
+      "reference": "0x00125cb8..0x00125cb8",
+      "note": "EL1 dev_context stub — no function body recovered from binary."
     }
   ]
 }

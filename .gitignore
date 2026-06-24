@@ -5,3 +5,8 @@ build/
 hs_err_pid*.log
 /tools/__pycache__
 /.commandcode
+/binary-files
+.DS_Store
+a53.elf
+/tools/llvm-6.0.0
+/research

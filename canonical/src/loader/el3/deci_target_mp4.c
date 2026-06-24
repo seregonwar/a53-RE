@@ -1,29 +1,4 @@
-#include "a53_abi.h"
 #include "a53_context.h"
-
-extern deci_shm_mp4_t g_deci_shm_mp4_data;
-extern deci_shm_mp4_t *g_deci_shm_mp4;
-extern deci_target_t g_deci_target_data;
-extern deci_target_t *g_deci_target;
-extern deci_target_md_t g_deci_target_md;
-extern deci_target_ch_fix_t *g_vecp_deci_target_ch_fix[2];
-extern deci_target_ch_fix_t g_vec_deci_target_ch_fix[2];
-
-/* Forward declarations for indirect calls through vtable */
-extern int deci_target_mp4_int_to_cp(a53_u32 no, a53_u32 dst, a53_u32 bit,
-                                      a53_u32 *mbox, a53_u32 val, a53_u32 hint0);
-extern int deci_target_mp4_clear_int_from_cp(a53_u32 no, a53_u32 dst, a53_u32 bit);
-extern int deci_target_mp4_wait_clear_target_to_cp(a53_u32 no, a53_u32 dst, a53_u32 bit);
-extern deci_shm_common_t *deci_target_mp4_get_shm_common(void);
-extern deci_shm_node_t *deci_target_mp4_get_shm_node_target(deci_shm_common_t *dsc);
-extern deci_shm_ch_node_fix_t *deci_target_mp4_get_shm_ch_fix_cp_to_target(
-    deci_shm_common_t *dsc, a53_u32 ui);
-extern deci_shm_ch_node_fix_t *deci_target_mp4_get_shm_ch_fix_target_to_cp(
-    deci_shm_common_t *dsc, a53_u32 ui);
-extern deci_shm_ch_node_ring_t *deci_target_mp4_get_shm_ch_ring_cp_to_target(
-    deci_shm_common_t *dsc, a53_u32 ui);
-extern deci_shm_ch_node_ring_t *deci_target_mp4_get_shm_ch_ring_target_to_cp(
-    deci_shm_common_t *dsc, a53_u32 ui);
 
 /* Function pointer fields in deci_target_md_t */
 #define MD_SETUP(md) do { \
@@ -482,6 +457,41 @@ deci_target_get_md_variable(deci_target_t *dts)
     return &g_deci_target_md;
 }
 
+/* ---- Thin wrappers that tail-call into deci_shm common helpers ----
+ * In the reference binary these are single b (branch) instructions at
+ * 0x0011010c-0x0011011c. With -Oz the compiler produces identical tail-calls.
+ */
+
+deci_shm_node_t *A53_SECTION(".text.el3.loader")
+deci_target_mp4_get_shm_node_target(deci_shm_common_t *dsc)
+{
+    return deci_shm_common_get_node_mp4(dsc);
+}
+
+deci_shm_ch_node_fix_t *A53_SECTION(".text.el3.loader")
+deci_target_mp4_get_shm_ch_fix_cp_to_target(deci_shm_common_t *dsc, a53_u32 ui)
+{
+    return deci_shm_common_get_ch_fix_cp_to_mp4(dsc, ui);
+}
+
+deci_shm_ch_node_fix_t *A53_SECTION(".text.el3.loader")
+deci_target_mp4_get_shm_ch_fix_target_to_cp(deci_shm_common_t *dsc, a53_u32 ui)
+{
+    return deci_shm_common_get_ch_fix_mp4_to_cp(dsc, ui);
+}
+
+deci_shm_ch_node_ring_t *A53_SECTION(".text.el3.loader")
+deci_target_mp4_get_shm_ch_ring_cp_to_target(deci_shm_common_t *dsc, a53_u32 ui)
+{
+    return deci_shm_common_get_ch_ring_cp_to_mp4(dsc, ui);
+}
+
+deci_shm_ch_node_ring_t *A53_SECTION(".text.el3.loader")
+deci_target_mp4_get_shm_ch_ring_target_to_cp(deci_shm_common_t *dsc, a53_u32 ui)
+{
+    return deci_shm_common_get_ch_ring_mp4_to_cp(dsc, ui);
+}
+
 deci_target_ch_fix_t *A53_SECTION(".text.el3.loader")
 deci_target_mp4_get_ch_fix(a53_u32 id)
 {
@@ -499,7 +509,8 @@ int A53_SECTION(".text.el3.loader") deci_target_mp4_start(a53_u32 core)
 
 int A53_SECTION(".text.el3.loader") deci_target_mp4_up(a53_u32 core)
 {
-    return deci_target_up(g_deci_target, core);
+    deci_target_up(g_deci_target, core);
+    return 0;
 }
 
 deci_target_md_t *A53_SECTION(".text.el3.loader") deci_target_get_md(void)
