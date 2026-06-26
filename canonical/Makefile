@@ -2,13 +2,19 @@
 # Target: make check-canonical
 # Uses host clang (Apple Silicon = aarch64 native) with -fsyntax-only
 
+HOST_OS  := $(shell uname -s)
+# Apple clang rejects unknown GCC-style warning flags silently; -Wno-unknown-warning-option
+# suppresses the diagnostic for any flag we might add in the future that Apple clang
+# doesn't recognise. Linux/BSD clang accepts it transparently.
+EXTRA_WARNINGS_QUIET := $(if $(filter Darwin,$(HOST_OS)),-Wno-unknown-warning-option,)
+
 CC       := clang
 CXX      := clang++
-CFLAGS   := -fsyntax-only -Wall -Wextra -ffreestanding -fno-builtin \
+CFLAGS   := -fsyntax-only -Wall -Wextra $(EXTRA_WARNINGS_QUIET) -ffreestanding -fno-builtin \
             -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function \
             -Wno-unused-but-set-variable -Wno-sign-compare \
             -I canonical/include -std=c11
-CXXFLAGS := -fsyntax-only -Wall -Wextra -ffreestanding -fno-builtin \
+CXXFLAGS := -fsyntax-only -Wall -Wextra $(EXTRA_WARNINGS_QUIET) -ffreestanding -fno-builtin \
             -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function \
             -Wno-unused-but-set-variable -Wno-sign-compare \
             -I canonical/include -std=c++11

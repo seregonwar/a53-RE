@@ -9,4 +9,5 @@ hs_err_pid*.log
 .DS_Store
 a53.elf
 /tools/llvm-6.0.0
-/research
+/external
+*.zip
